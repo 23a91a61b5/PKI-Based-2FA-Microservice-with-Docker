@@ -8,7 +8,7 @@ import sys
 # or adjust the import line accordingly.
 import sys
 sys.path.append('/app')
-from crypto_utils import generate_totp_code # Now this import will find the file in /app
+from crypto_utils import generate_totp_code # This import will now work
 
 SEED_PATH = "/data/seed.txt"
 
