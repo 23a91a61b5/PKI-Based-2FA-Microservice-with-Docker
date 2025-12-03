@@ -1,5 +1,0 @@
-fastapi
-uvicorn
-python-multipart
-cryptography # For RSA/OAEP and RSA-PSS
-pyotp        # Or your chosen TOTP library
