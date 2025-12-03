@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    # 1. Build Configuration: Tells Docker Compose to use your Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    container_name: secure-2fa-service
+
+    # 2. CRITICAL: Port Mapping (Host port 8080 -> Container port 8080)
+    ports:
+      - "8080:8080"
+    
+    # 3. Environment Variable (CRITICAL: Sets Timezone for TOTP and Cron)
+    environment:
+      - TZ=UTC
+      
+    # 4. CRITICAL: Volume Mounts (Links persistent storage to container paths)
+    volumes:
+      # Named volume for persistent seed data
+      - seed-data:/data
+      # Named volume for persistent cron output
+      - cron-output:/cron
+      
+    # 5. Restart Policy (Ensures service stability)
+    restart: unless-stopped
+
+# 6. Define Named Volumes: The physical storage managed by Docker
+volumes:
+  seed-data:
+  cron-output:
