@@ -6,7 +6,9 @@ import sys
 # CRITICAL: This imports your core TOTP generation logic from the utility module.
 # Ensure your file containing generate_totp_code is named 'crypto_utils.py' 
 # or adjust the import line accordingly.
-from crypto_utils import generate_totp_code
+import sys
+sys.path.append('/app')
+from crypto_utils import generate_totp_code # Now this import will find the file in /app
 
 SEED_PATH = "/data/seed.txt"
 
