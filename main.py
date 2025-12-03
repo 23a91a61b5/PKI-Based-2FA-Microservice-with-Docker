@@ -4,7 +4,7 @@ import os
 import base64
 
 # Import all core logic from the utility file
-from .crypto_utils import (
+from crypto_utils import (
     load_private_key, decrypt_seed, save_hex_seed, 
     generate_totp_code, verify_totp_code
 )
